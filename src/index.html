@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/jquery.localizationTool.css">
+    </link>
+    <title>Document</title>
+</head>
+
+<body style="padding: 100px;color: #535353;
+font-family: sans-serif;">
+    <h1 style="margin-top: 0px">Translate</h1>
+    <h2 id="welcomeText" style="margin-top: 32px;color: #7b7b7b;">Welcome!How are You?</h2>
+    <div id="selectLanguageDropdown" class="localizationTool"></div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="./js/jquery.localizationTool.js"></script>
+
+<script>
+    $('#selectLanguageDropdown').localizationTool({
+        'defaultLanguage': 'en_GB',
+        'ignoreUnmatchedSelectors': false,
+        'showFlag': true,
+        'showLanguage': true,
+        'showCountry': true,
+        'labelTemplate': '{{country}} {{(language)}}',
+        'languages': {
+            'italian': {
+                'country': 'Italy',
+                'language': 'Italian',
+                'countryTranslated': 'Italia',
+                'languageTranslated': 'Italiano',
+                'flag': {
+                    // 'url': './css/flags.png', /* url of flag image */
+                    'class': 'flag flag-it' /* (optional) class to assign to the flag (e.g., for css styling) */
+                }
+            },
+        },
+        'strings': {
+            'id:welcomeText': {
+                'italian': 'Benvenuta! come va?',
+
+            },
+        },
+        'onLanguageSelected': function (/*countryLanguageCode*/) { return true; }
+    });
+</script>
+
+</html>
